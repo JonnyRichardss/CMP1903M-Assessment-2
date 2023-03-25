@@ -8,7 +8,7 @@ namespace CMP1903M_Assessment_2
 {
     internal class Pack
     {
-        List<Card> pack;
+        readonly List<Card> pack;
         public Pack()
         {
             //Initialise the card pack here
@@ -57,7 +57,6 @@ namespace CMP1903M_Assessment_2
             //calls deal 'amount' times and adds to output
             try
             {
-
                 for (int i = 0; i < amount; i++)
                 {
                     output.Add(Deal());

@@ -4,6 +4,9 @@
     {
         static void Main(string[] args)
         {
+            Pack p = new Pack();
+            Console.WriteLine("Hello, World!");
+            p.Shuffle();
             Console.WriteLine("Hello, World!");
         }
     }

@@ -17,27 +17,27 @@ namespace CMP1903M_Assessment_2
     internal class Card
     {
 
-        private int _value;
-        private SuitEnum _suit;
 
         public int Value
         {
-            get { return _value; }
+            get;
+            private set;
         }
         public SuitEnum Suit
         {
-            get { return _suit; }
+            get;
+            private set;
         }
 
+        //this error checking wants looking at i think
         public Card(int val, SuitEnum suit)
         {
-            if (0 < val && val < 14) _value = val;
-            _suit = suit;
+            if (0 < val && val < 14) Value = val;
+            Suit = suit;
         }
-        public Card(int val, int suit)
+        public Card(int val, int suit) : this(val,(SuitEnum)suit)
         {
-            if (0 < val && val < 14) _value = val;
-            _suit = (SuitEnum)suit;
+
         }
 
         public override string ToString()
@@ -48,7 +48,7 @@ namespace CMP1903M_Assessment_2
                 return ("Nothing, end of pack reached!");
             }
             //return card name (human readable)
-            return (String.Format("The {0} of {1}.", _value, Suit));
+            return (String.Format("The {0} of {1}.", Value, Suit));
         }
     }
 }
