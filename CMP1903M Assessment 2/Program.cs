@@ -2,12 +2,28 @@
 {
     internal class Program
     {
+        static void DealMenu(ref Pack pack)
+        {
+            bool exit = false;
+            while (!exit)
+            {
+                //present sum
+                //take input
+                //check if correct
+                //deal again or break
+            }
+        }
+        static void MainMenu()
+        {
+
+        }
         static void Main(string[] args)
         {
-            Pack p = new Pack();
-            Console.WriteLine("Hello, World!");
-            p.Shuffle();
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Welcome to the LinCode Maths Tutor demo!");
+            MainMenu();
+            Console.WriteLine("Goodbye!");
+            Console.WriteLine("Please press ENTER to exit.");
+            Console.ReadLine();
         }
     }
 }
