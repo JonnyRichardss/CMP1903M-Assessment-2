@@ -15,15 +15,22 @@
         }
         static void MainMenu()
         {
-
-        }
-        static void Main(string[] args)
-        {
             Console.WriteLine("Welcome to the LinCode Maths Tutor demo!");
-            MainMenu();
+
+
             Console.WriteLine("Goodbye!");
             Console.WriteLine("Please press ENTER to exit.");
             Console.ReadLine();
+        }
+        static void Main(string[] args)
+        {
+            Pack p = new Pack();
+            foreach (Card c in p)
+            {
+                Console.WriteLine(c.ToString());
+            }
+            //Entry point hands straight off to console menu
+            MainMenu();
         }
     }
 }

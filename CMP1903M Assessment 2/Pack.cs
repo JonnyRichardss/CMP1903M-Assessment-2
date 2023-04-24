@@ -6,41 +6,35 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_2
 {
-    internal class Pack
+    internal class Pack : CardCollection
     {
-        readonly List<Card> pack;
+        public override List<Card> Cards { get;}
         public Pack()
         {
-            //Initialise the card pack here
-            pack = new List<Card>();
+            //Initialise the card Cards here
+            Cards = new List<Card>();
             for (int s = 1; s < 5; s++)
             {
                 for (int v = 1; v < 14; v++)
                 {
-                    pack.Add(new Card(v, s));
+                    Cards.Add(new Card(v, s));
                 }
             }
         }
-        public void Shuffle()
+        public Pack(bool shuffled) : this()
         {
-            Random rng = new Random();
-            for (int i = pack.Count - 1; i >= 0; i--)
+            if (shuffled)
             {
-                int j = rng.Next(pack.Count - 1);
-                Card currcard = pack[i];
-                Card randomcard = pack[j];
-                pack[i] = randomcard;
-                pack[j] = currcard;
-
+                this.Shuffle();
             }
         }
         public Card Deal()
         {
             //deals one card
-            if (pack.Count > 0)
+            if (Cards.Count > 0)
             {
-                Card card = pack[0];
-                pack.Remove(card);
+                Card card = Cards[0];
+                Cards.Remove(card);
                 return card;
             }
             else

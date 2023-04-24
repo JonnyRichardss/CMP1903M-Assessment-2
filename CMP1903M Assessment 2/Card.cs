@@ -9,12 +9,12 @@ namespace CMP1903M_Assessment_2
     public enum SuitEnum
     {
         ERROR = 0,
-        hearts = 1,
-        clubs = 2,
-        diamonds = 3,
-        spades = 4
+        add = 1,
+        subtract = 2,
+        multiply = 3,
+        divide = 4
     }
-    internal class Card
+    public class Card
     {
 
 
@@ -30,6 +30,12 @@ namespace CMP1903M_Assessment_2
         }
 
         //this error checking wants looking at i think
+        public Card()
+        {
+            Random rng = new Random();
+            Value = rng.Next(1, 14);
+            Suit = (SuitEnum)rng.Next(1, 5);
+        }
         public Card(int val, SuitEnum suit)
         {
             if (0 < val && val < 14) Value = val;
