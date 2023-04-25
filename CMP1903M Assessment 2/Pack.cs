@@ -8,7 +8,11 @@ namespace CMP1903M_Assessment_2
 {
     internal class Pack : CardCollection
     {
-        public override List<Card> Cards { get;}
+        protected override List<Card> Cards { get;}
+        public override int Count 
+        {
+            get { return Cards.Count; }
+        }
         public Pack()
         {
             //Initialise the card Cards here

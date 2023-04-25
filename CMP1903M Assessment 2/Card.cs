@@ -36,6 +36,10 @@ namespace CMP1903M_Assessment_2
             Value = rng.Next(1, 14);
             Suit = (SuitEnum)rng.Next(1, 5);
         }
+        public Card(int value):this()
+        { 
+            Value = value;
+        }
         public Card(int val, SuitEnum suit)
         {
             if (0 < val && val < 14) Value = val;
@@ -55,6 +59,22 @@ namespace CMP1903M_Assessment_2
             }
             //return card name (human readable)
             return (String.Format("The {0} of {1}.", Value, Suit));
+        }
+        public static float operator +(Card card1, Card card2)
+        {
+            return card1.Value + card2.Value;
+        }
+        public static float operator -(Card card1, Card card2)
+        {
+            return card1.Value - card2.Value;
+        }
+        public static float operator *(Card card1, Card card2)
+        {
+            return card1.Value * card2.Value;
+        }
+        public static float operator /(Card card1, Card card2)
+        {
+            return card1.Value / card2.Value;
         }
     }
 }

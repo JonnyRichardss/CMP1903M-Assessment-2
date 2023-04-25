@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_2
 {
-    internal class Expression : CardCollection, IEvaluable
+    public class Expression : CardCollection, IEvaluable
     {
-        public override List<Card> Cards { get; }
+        protected override List<Card> Cards { get; }
+        public override int Count 
+        { 
+            get { return Cards.Count; } 
+        }
         private float Value;
 
 
@@ -39,10 +43,15 @@ namespace CMP1903M_Assessment_2
         {
             if (Value != float.PositiveInfinity)
             {
+                //If already Evaluated find the stored value
                 return Value;
             }
             else
             {
+                if (this.Count > 3)
+                {
+
+                }
                 //evaluate
                 Value = float.PositiveInfinity;
                 return Value;
