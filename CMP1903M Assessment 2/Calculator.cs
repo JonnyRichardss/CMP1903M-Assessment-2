@@ -52,8 +52,9 @@ namespace CMP1903M_Assessment_2
                     }
                 }
             }
-            return BodmasCalc(new Expression(nextExpression));
+            return Calc(new Expression(nextExpression));
         }
+
         public static float Calc(Expression e)
         {
             if (e.Count != 3)
