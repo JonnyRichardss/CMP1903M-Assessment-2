@@ -48,12 +48,8 @@ namespace CMP1903M_Assessment_2
             }
             else
             {
-                if (this.Count > 3)
-                {
-
-                }
-                //evaluate
-                Value = float.PositiveInfinity;
+                //evaluate, store and return
+                Value = Calculator.Calc(this);
                 return Value;
             }
         }
