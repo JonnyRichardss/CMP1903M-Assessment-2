@@ -17,8 +17,18 @@ namespace CMP1903M_Assessment_2
     {
         public int Value
         {
-            get;
-            private set;
+            get { return Value; }
+            private set
+            {
+                if (value >0 && value < 14)
+                {
+                    Value = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
         } 
         public SuitEnum Suit
         {
@@ -26,7 +36,6 @@ namespace CMP1903M_Assessment_2
             private set;
         }
         private float FloatValue;
-        //this error checking wants looking at i think
         public Card()
         {
             Random rng = new Random();
@@ -36,11 +45,11 @@ namespace CMP1903M_Assessment_2
         public Card(float floatValue):this()
         { 
            FloatValue = floatValue;
-            Value = (int)floatValue;
+           Value = (int)floatValue;
         }
         public Card(int val, SuitEnum suit)
         {
-            if (0 < val && val < 14) Value = val;
+            Value = val;
             Suit = suit;
         }
         public Card(int val, int suit) : this(val,(SuitEnum)suit)
@@ -48,13 +57,7 @@ namespace CMP1903M_Assessment_2
 
         }
 
-        public override string ToString()
-        {
-            //return card name (human readable)
-            return (String.Format("The {0} of {1}.", Value, Suit));
-        }
-
-        //decided to have operators return float since 
+        //decided to have operators return float since divide can give decimal values
         public static float operator +(Card card1, Card card2)
         {
             return card1.FloatValue + card2.FloatValue;
@@ -70,6 +73,12 @@ namespace CMP1903M_Assessment_2
         public static float operator /(Card card1, Card card2)
         {
             return card1.FloatValue / card2.FloatValue;
+        }
+
+        public override string ToString()
+        {
+            //return card name (mainly for debugging)
+            return (String.Format("{0},{1}.", Value, Suit));
         }
     }
 }

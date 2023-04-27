@@ -53,19 +53,12 @@ namespace CMP1903M_Assessment_2
             List<Card> output = new List<Card>(); //init output
 
             //calls deal 'amount' times and adds to output
-            try
-            {
-                for (int i = 0; i < amount; i++)
-                {
-                    output.Add(Deal());
-                }
-            }
-            catch (PackEmptyException)
-            {
-                //might want behaviour here
-                throw;
-            }
 
+            for (int i = 0; i < amount; i++)
+            {
+                output.Add(Deal());
+            }
+            //this used to be a catch rethrow but I decided that was pointless since it doesnt do anything new with the PackEmptyException
             return output;
         }
     }
