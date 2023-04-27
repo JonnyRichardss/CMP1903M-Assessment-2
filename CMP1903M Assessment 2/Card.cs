@@ -8,7 +8,6 @@ namespace CMP1903M_Assessment_2
 {
     public enum SuitEnum
     {
-        ERROR = 0,
         add = 1,
         subtract = 2,
         multiply = 3,
@@ -51,11 +50,6 @@ namespace CMP1903M_Assessment_2
 
         public override string ToString()
         {
-            //THIS NEEDS CHANGING ITS PRETTY WEIRD maybe can just change wording for error idk
-            if (Suit == SuitEnum.ERROR)
-            {
-                return ("Nothing, end of pack reached!");
-            }
             //return card name (human readable)
             return (String.Format("The {0} of {1}.", Value, Suit));
         }
