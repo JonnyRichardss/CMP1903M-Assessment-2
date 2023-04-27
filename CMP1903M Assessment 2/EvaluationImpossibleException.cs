@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_2
 {
-    internal class Output
+    internal class EvaluationImpossibleException :Exception
     {
+        public EvaluationImpossibleException() :base(message:"Evaluation Impossible!")
+        {
 
+        }
     }
 }

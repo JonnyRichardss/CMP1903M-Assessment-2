@@ -31,8 +31,8 @@ namespace CMP1903M_Assessment_2
 
                 }
             }
-            List<Card> nextExpression = new List<Card>();
-            List<Card> currentCalculation = new List<Card>();
+            Expression nextExpression = new Expression();
+            Expression currentCalculation = new Expression();
             for (int i = 0; i < e.Count; i++)
             {
                 if (Math.Abs(i - OperationIndex) > 1)
@@ -41,27 +41,25 @@ namespace CMP1903M_Assessment_2
                 }
                 else
                 {
-                    //this might be cleaner if I can add to expression, might look into it
                     currentCalculation.Add(e[i]);
                     if (currentCalculation.Count == 3)
                     {
-                        Expression currentCalculationExpression = new Expression(currentCalculation);
-                        int newValue = (int)Calc(currentCalculationExpression);
+                        int newValue = (int)Calculate(currentCalculation);
                         Card newCard = new Card(newValue);
                         nextExpression.Add(newCard);
                     }
                 }
             }
-            return Calc(new Expression(nextExpression));
+            return Calculate(nextExpression);
         }
 
-        public static float Calc(Expression e)
+        public static float Calculate(Expression e)
         {
-            if (e.Count != 3)
+            if (e.Count != 3)//recursive case
             {
                 return BodmasCalc(e);
             }
-            else
+            else //base case
             {
                 Card operation = e[1];
                 switch (operation.Suit)

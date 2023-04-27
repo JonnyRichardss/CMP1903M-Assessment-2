@@ -15,7 +15,11 @@ namespace CMP1903M_Assessment_2
         }
         private float Value;
 
-
+        public Expression()
+        {
+            Cards = new List<Card>();
+            Value = float.PositiveInfinity;
+        }
         public Expression(List<Card> cards)
         { 
             if (cards.Count%2 ==0) 
@@ -41,6 +45,10 @@ namespace CMP1903M_Assessment_2
         }
         public float Evaluate()
         {
+            if (Cards.Count % 2 == 0)
+            {
+                throw new EvaluationImpossibleException();
+            }
             if (Value != float.PositiveInfinity)
             {
                 //If already Evaluated find the stored value
@@ -49,7 +57,7 @@ namespace CMP1903M_Assessment_2
             else
             {
                 //evaluate, store and return
-                Value = Calculator.Calc(this);
+                Value = Calculator.Calculate(this);
                 return Value;
             }
         }

@@ -16,19 +16,17 @@ namespace CMP1903M_Assessment_2
     }
     public class Card
     {
-
-
         public int Value
         {
             get;
             private set;
-        }
+        } 
         public SuitEnum Suit
         {
             get;
             private set;
         }
-
+        private float FloatValue;
         //this error checking wants looking at i think
         public Card()
         {
@@ -36,9 +34,10 @@ namespace CMP1903M_Assessment_2
             Value = rng.Next(1, 14);
             Suit = (SuitEnum)rng.Next(1, 5);
         }
-        public Card(int value):this()
+        public Card(float floatValue):this()
         { 
-            Value = value;
+           FloatValue = floatValue;
+            Value = (int)floatValue;
         }
         public Card(int val, SuitEnum suit)
         {
@@ -60,21 +59,23 @@ namespace CMP1903M_Assessment_2
             //return card name (human readable)
             return (String.Format("The {0} of {1}.", Value, Suit));
         }
+
+        //decided to have operators return float since 
         public static float operator +(Card card1, Card card2)
         {
-            return card1.Value + card2.Value;
+            return card1.FloatValue + card2.FloatValue;
         }
         public static float operator -(Card card1, Card card2)
         {
-            return card1.Value - card2.Value;
+            return card1.FloatValue - card2.FloatValue;
         }
         public static float operator *(Card card1, Card card2)
         {
-            return card1.Value * card2.Value;
+            return card1.FloatValue * card2.FloatValue;
         }
         public static float operator /(Card card1, Card card2)
         {
-            return card1.Value / card2.Value;
+            return card1.FloatValue / card2.FloatValue;
         }
     }
 }

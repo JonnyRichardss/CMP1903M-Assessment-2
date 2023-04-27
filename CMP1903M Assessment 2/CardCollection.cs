@@ -10,7 +10,7 @@ namespace CMP1903M_Assessment_2
     public abstract class CardCollection : IEnumerable<Card>
     {
         protected abstract List<Card> Cards {get;}
-        public abstract int Count {get;}
+        public abstract int Count { get; }
         public void Shuffle()
         {
             Random rng = new Random();
@@ -29,7 +29,10 @@ namespace CMP1903M_Assessment_2
             get { return Cards[index]; }
             set { Cards[index] = value; }
         }
-
+        public void Add(Card c)
+        {
+            Cards.Add(c);
+        }
         public IEnumerator<Card> GetEnumerator()
         {
             return ((IEnumerable<Card>)Cards).GetEnumerator();
