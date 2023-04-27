@@ -12,6 +12,7 @@ namespace CMP1903M_Assessment_2
         {
             SuitEnum[] Bodmasorder = new SuitEnum[] { SuitEnum.divide, SuitEnum.multiply, SuitEnum.add, SuitEnum.subtract };
             Dictionary<SuitEnum, int> operations = new Dictionary<SuitEnum, int>();
+            //find all operation cards in expression
             for (int i = 0; i < e.Count; i++)
             {
                 if (i %2 != 0)
@@ -19,6 +20,7 @@ namespace CMP1903M_Assessment_2
                     operations.Add(e[i].Suit,i);
                 }
             }
+            //choose the next one to be used 
             int OperationIndex=0;
             foreach (SuitEnum SearchSuit in Bodmasorder) 
             {
@@ -31,6 +33,7 @@ namespace CMP1903M_Assessment_2
 
                 }
             }
+            //constructs next expression including the results of the current calculation
             Expression nextExpression = new Expression();
             Expression currentCalculation = new Expression();
             for (int i = 0; i < e.Count; i++)
@@ -73,7 +76,7 @@ namespace CMP1903M_Assessment_2
                     case SuitEnum.divide:
                         return e[0] / e[2];
                     default:
-                        //fix this
+                        //not sure this is possible but the compiler sure thinks it is
                         throw new Exception();
                 }
             }
