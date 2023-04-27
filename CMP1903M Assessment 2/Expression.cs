@@ -22,21 +22,11 @@ namespace CMP1903M_Assessment_2
         }
         public Expression(List<Card> cards)
         { 
-            if (cards.Count%2 ==0) 
-            {
-                //fix this
-                throw new Exception();
-            }
             Cards = cards;
             Value = float.PositiveInfinity;
         }
         public Expression(int NumCards)
         {
-            if (NumCards % 2 == 0)
-            { 
-                //fix this too
-                throw new Exception();
-            }
             Cards = new List<Card>();
             for(int i = 0; i < NumCards; i++)
             {
