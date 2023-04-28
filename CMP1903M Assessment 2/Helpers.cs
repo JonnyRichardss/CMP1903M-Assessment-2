@@ -9,7 +9,7 @@ namespace CMP1903M_Assessment_2
     //Helpers.cs initially copied from my algorithms assessment
     internal static class Helpers
     {
-        //class of functions that perform miscellaneous tasks in my code
+        //class of functions that perform miscellaneous (console related) tasks in my code
         public static int intMenu(string heading, string[] options)
         {
             //function that constructs a text menu with any number of options from options array
@@ -43,28 +43,29 @@ namespace CMP1903M_Assessment_2
 
             return output;//once valid and in range, return the int
         }
-        public static int intInput()
+        public static float floatInput()
         {
-            //function that takes and validates a simple integer input
-            //returns the integer the user inputted
+            //function that takes and validates a simple float input
+            //returns the float the user inputted
             bool validInput = false;
             string userInput;
-            int output = -1;
+            float output = float.PositiveInfinity;
             while (!validInput)
             {
                 //take input
                 Console.Write(">");
                 userInput = Console.ReadLine() ?? string.Empty; //again the weird question mark thing to shut the compiler up
-                if (int.TryParse(userInput, out output))
+                if (float.TryParse(userInput, out output))
                 {
                     validInput = true;//if the input is valid continue
                 }
                 else
                 {
-                    Console.WriteLine("Input was not an integer!"); //else loop
+                    Console.WriteLine("Input was not an float!"); //else loop
                 }
             }
-            return output;//finally return the integer
+            return output;//finally return the float
         }
+
     }
 }
