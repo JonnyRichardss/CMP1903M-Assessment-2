@@ -25,7 +25,7 @@ namespace CMP1903M_Assessment_2
         public static void SaveStats()
         {
             string stats = Statistics.AllValues;
-            File.WriteAllText(stats, FilePath);
+            File.WriteAllText(FilePath,stats);
         }
     }
 }

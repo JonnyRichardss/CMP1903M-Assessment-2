@@ -51,5 +51,23 @@ namespace CMP1903M_Assessment_2
                 return Value;
             }
         }
+
+        public override string ToString()
+        {
+            List<string> output = new List<string>();
+            for (int i = 0; i < Cards.Count; i++)
+            {
+                Card currentCard = Cards[i];
+                if (i%2 == 0)
+                {
+                    output.Add(String.Format(" {0} ",currentCard.Value));
+                }
+                else
+                {
+                    output.Add(Card.OperatorToString(currentCard.Suit));
+                }
+            }
+            return String.Join("",output);
+        }
     }
 }

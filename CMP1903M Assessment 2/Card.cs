@@ -15,14 +15,15 @@ namespace CMP1903M_Assessment_2
     }
     public class Card
     {
+        private int _value;
         public int Value
         {
-            get { return Value; }
+            get { return _value; }
             private set
             {
                 if (value >0 && value < 14)
                 {
-                    Value = value;
+                    _value = value;
                 }
                 else
                 {
@@ -79,6 +80,22 @@ namespace CMP1903M_Assessment_2
         {
             //return card name (mainly for debugging)
             return (String.Format("{0},{1}.", Value, Suit));
+        }
+        public static string OperatorToString(SuitEnum input)
+        {
+            switch (input)
+            {
+                case SuitEnum.add:
+                    return "+";
+                case SuitEnum.subtract:
+                    return "-";
+                case SuitEnum.multiply:
+                    return "*";
+                case SuitEnum.divide:
+                    return "/";
+                default:
+                    return String.Empty;
+            }
         }
     }
 }

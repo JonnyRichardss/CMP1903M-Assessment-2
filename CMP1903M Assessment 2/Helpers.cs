@@ -67,5 +67,27 @@ namespace CMP1903M_Assessment_2
             return output;//finally return the float
         }
 
+        public static bool BoolInput(string message)
+        {
+            while (true)
+            {
+                Console.WriteLine(message+" Y/N");
+                Console.Write(">");
+                string userInput = Console.ReadLine() ?? string.Empty;
+                if (userInput.ToUpper()  == "Y")
+                {
+                    return true;
+                }
+                else if (userInput.ToUpper() == "N")
+                {
+                    return false;
+                }
+                else
+                {
+                    Console.WriteLine("Not an option, please type Y or N.");
+                }
+            }
+
+        }
     }
 }

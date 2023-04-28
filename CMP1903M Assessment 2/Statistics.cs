@@ -8,6 +8,7 @@ namespace CMP1903M_Assessment_2
 {
     public static class Statistics
     {
+        //this entire thing is a little odd considering how the rest of the program could theoretically do an arbitrary number of  cards but oh well
         public static int total3Card;
         public static int total5Card;
 
@@ -35,7 +36,7 @@ namespace CMP1903M_Assessment_2
             IO.LoadStats();
         }
 
-        public static bool CheckFormat(string storedValues)
+        private static bool CheckFormat(string storedValues)
         {
             string[] values = storedValues.Split(",");
             if (values.Length != 4)
@@ -50,6 +51,26 @@ namespace CMP1903M_Assessment_2
                 }
             }
             return true;
+        }
+        public static void AddResult(bool correct,int numCards)
+        {
+           
+            if (numCards == 3)
+            {
+                total3Card++;
+                if (correct)
+                {
+                    correct3Card++;
+                } 
+            }
+            else
+            {
+                total5Card++;
+                if (correct)
+                {
+                    correct5Card++;
+                }
+            }
         }
     }
 }
