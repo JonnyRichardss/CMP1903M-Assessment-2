@@ -66,49 +66,5 @@ namespace CMP1903M_Assessment_2
             }
             return output;//finally return the integer
         }
-        public static int[] ReadFile(string path)
-        {
-            //function that reads file full of integers on separate lines into a int[] array
-
-            //read in file as strings
-            string[] lines = File.ReadAllLines(path);
-            //convert to int
-            int[] output = new int[lines.Length];
-            for (int i=0;i<lines.Length; i++)
-            {
-                output[i] = int.Parse(lines[i]); //this has no error checking but as it is, the files are hard-coded so it shouldn't matter
-            }
-
-            return output;//return final array
-        }
-        public static List<int[]> ReadMultiFiles(string[] paths)
-        {
-            //function that simply calls readfile multiple times and returns it as a 2d list
-            List<int[]> output = new List<int[]>();
-            foreach (string path in paths)
-            {
-                output.Add(ReadFile(path));
-            }
-            return output;
-        }
-        public static string FormatSteps(List<int> results)
-        {
-            //formatting function to ensure correct spacing on steps vs n table
-            //gves every int int the input its own 10-character space to be put in
-            string output = "";
-            int targetlen = 10;
-            foreach(int i in results) //for every int
-            {
-                int ilen = i.ToString().Length;//get its # of digits
-                int remaininglen = targetlen - ilen; //calculate amount of white space needed
-
-                //construct the white space
-                string left = new string(' ', remaininglen/2)+" ";
-                string right = new string(' ', remaininglen - (left.Length-1))+"|";
-
-                output = output + left+i+right;//add it all to the output
-            }
-            return output;//finally return the line as a single string
-        }
     }
 }
