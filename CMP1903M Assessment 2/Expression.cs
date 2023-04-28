@@ -47,8 +47,20 @@ namespace CMP1903M_Assessment_2
             else
             {
                 //evaluate, store and return
-                Value = Calculator.Calculate(this);
+                Value = MathF.Round(Calculator.Calculate(this),2);
                 return Value;
+            }
+        }
+        public bool CheckAnswer(float answer)
+        {
+            answer = MathF.Round(answer,2);
+            if (answer == Evaluate())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

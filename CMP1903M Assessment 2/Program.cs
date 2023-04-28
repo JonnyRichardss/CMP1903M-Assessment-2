@@ -2,20 +2,10 @@
 {
     internal class Program
     {
-        static void DealMenu(ref Pack pack)
-        {
-            bool exit = false;
-            while (!exit)
-            {
-                //present sum
-                //take input
-                //check if correct
-                //deal again or break
-            }
-        }
-
         static void Main(string[] args)
         {
+            string[] testExpressions = { "1 + 2 + 3", "2 * 4 - 3" };
+            Testing.Test(testExpressions);
             //Entry point hands straight off to console menu
             Tutorial.MainMenu();
         }

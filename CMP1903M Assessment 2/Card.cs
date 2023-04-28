@@ -42,16 +42,22 @@ namespace CMP1903M_Assessment_2
             Random rng = new Random();
             Value = rng.Next(1, 14);
             Suit = (SuitEnum)rng.Next(1, 5);
+            FloatValue = (float)Value;
         }
         public Card(float floatValue):this()
         { 
            FloatValue = floatValue;
            Value = (int)floatValue;
         }
+        public Card(SuitEnum suit) :this()
+        {
+            Suit = suit;
+        }
         public Card(int val, SuitEnum suit)
         {
             Value = val;
             Suit = suit;
+            FloatValue = val;
         }
         public Card(int val, int suit) : this(val,(SuitEnum)suit)
         {

@@ -11,27 +11,26 @@ namespace CMP1903M_Assessment_2
         private static float BodmasCalc(Expression e)
         {
             SuitEnum[] Bodmasorder = new SuitEnum[] { SuitEnum.divide, SuitEnum.multiply, SuitEnum.add, SuitEnum.subtract };
-            Dictionary<SuitEnum, int> operations = new Dictionary<SuitEnum, int>();
-            //find all operation cards in expression
-            for (int i = 0; i < e.Count; i++)
-            {
-                if (i %2 != 0)
-                {
-                    operations.Add(e[i].Suit,i);
-                }
-            }
+            //select all operation cards in expression
+            
             //choose the next one to be used 
             int OperationIndex=0;
+            bool breakBool = false;
             foreach (SuitEnum SearchSuit in Bodmasorder) 
             {
-                foreach (SuitEnum CurrentSuit in operations.Keys)
+                if (breakBool)
                 {
-                    if (CurrentSuit == SearchSuit)
-                    {
-                        OperationIndex = operations[CurrentSuit];
-                    }
-
+                    break;
                 }
+                for (int i = 0; i < e.Count; i++)
+                {
+                    if (i % 2 != 0 && SearchSuit == e[i].Suit)
+                    {
+                        OperationIndex = i;
+                        breakBool = true;
+                        break;
+                    }
+                }      
             }
             //constructs next expression including the results of the current calculation
             Expression nextExpression = new Expression();

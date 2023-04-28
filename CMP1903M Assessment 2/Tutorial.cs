@@ -31,7 +31,8 @@ namespace CMP1903M_Assessment_2
                 +"To use it choose to deal either 3 or 5 cards from the pack.\n" +
                 "These dealt cards are interpreted as a maths equation.\n"
                 +"You then answer the equation and the program will check if you are right.\n" +
-                "The program will also store basic statistics about the number of questions answered correctly";
+                "The program will also store basic statistics about the number of questions answered correctly\n" +
+                "(Decimal answers are max 2 decimal places)";
             while (!quit)
             {
                 int input = Helpers.intMenu(header, options);
@@ -77,7 +78,7 @@ namespace CMP1903M_Assessment_2
                 }
                 Console.WriteLine(currentE);
                 float input = Helpers.floatInput();
-                bool correct = input == currentE.Evaluate();
+                bool correct = currentE.CheckAnswer(input);
                 if (correct)
                 {
                     Console.WriteLine("You got it right!");
@@ -87,7 +88,7 @@ namespace CMP1903M_Assessment_2
                     Console.WriteLine("Incorrect. The answer was {0}!",currentE.Evaluate());
                 }
                 Statistics.AddResult(correct, numCards);
-                exit = !Helpers.BoolInput("Do you want to deal again?"); 
+                exit = !Helpers.BoolInput("Do you want to deal again?");
             }
         }
     }
