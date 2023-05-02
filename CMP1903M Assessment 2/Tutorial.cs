@@ -35,7 +35,7 @@ namespace CMP1903M_Assessment_2
                 "(Decimal answers are max 2 decimal places)";
             while (!quit)
             {
-                int input = ConsoleHelpers.intMenu(header, options);
+                int input = ConsoleInputHelpers.intMenu(header, options);
                 switch (input)
                 {
                     case 1:
@@ -77,7 +77,7 @@ namespace CMP1903M_Assessment_2
                     currentE = new Expression(pack.Deal(numCards));
                 }
                 Console.WriteLine(currentE);
-                float input = ConsoleHelpers.floatInput();
+                float input = ConsoleInputHelpers.floatInput();
                 bool correct = currentE.CheckAnswer(input);
                 if (correct)
                 {
@@ -88,7 +88,8 @@ namespace CMP1903M_Assessment_2
                     Console.WriteLine("Incorrect. The answer was {0}!",currentE.Evaluate());
                 }
                 Statistics.AddResult(correct, numCards);
-                exit = !ConsoleHelpers.BoolInput("Do you want to deal again?");
+                IO.SaveStats();
+                exit = !ConsoleInputHelpers.BoolInput("Do you want to deal again?");
             }
         }
     }

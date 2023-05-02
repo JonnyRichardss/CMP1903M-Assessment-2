@@ -8,7 +8,7 @@ namespace CMP1903M_Assessment_2
 {
     internal static class IO
     {
-        private static string FilePath = "Statistics.txt";
+        private const string FilePath = "Statistics.txt";
         public static void LoadStats()
         {
             try

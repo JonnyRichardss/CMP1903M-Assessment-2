@@ -46,7 +46,7 @@ namespace CMP1903M_Assessment_2
                     currentCalculation.Add(e[i]);
                     if (currentCalculation.Count == 3)
                     {
-                        int newValue = (int)Calculate(currentCalculation);
+                        float newValue = Calculate(currentCalculation);
                         Card newCard = new Card(newValue);
                         nextExpression.Add(newCard);
                     }

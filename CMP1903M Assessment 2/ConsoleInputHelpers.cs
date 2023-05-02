@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CMP1903M_Assessment_2
 {
     //Helpers.cs initially copied from my algorithms assessment
-    internal static class ConsoleHelpers
+    internal static class ConsoleInputHelpers
     {
         //class of functions that perform miscellaneous (console related) tasks in my code
         public static int intMenu(string heading, string[] options)

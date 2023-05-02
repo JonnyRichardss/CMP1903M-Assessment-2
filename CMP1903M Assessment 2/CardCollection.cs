@@ -33,6 +33,10 @@ namespace CMP1903M_Assessment_2
         {
             Cards.Add(c);
         }
+        public void Remove(Card c)
+        {
+            Cards.Remove(c);
+        }
         public IEnumerator<Card> GetEnumerator()
         {
             return ((IEnumerable<Card>)Cards).GetEnumerator();

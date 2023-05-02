@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_2
 {
-    internal class Testing
+    internal static class Testing
     {
-        static Expression StringToExpression(string s)
+        static Expression StringToExpression(string input)
         {
-            string[] cardStrings = s.Split(" ");
+            List<string> cardStrings = new List<string>();
+            cardStrings.AddRange(input.Split(" "));
+            foreach (string s in cardStrings)
+            {
+                if (s == string.Empty)
+                {
+                    cardStrings.Remove(s);
+                }
+            }
             List<Card > Cards = new List<Card>();
             foreach(string cardString in cardStrings)
             {
@@ -37,16 +45,37 @@ namespace CMP1903M_Assessment_2
             }
             return new Expression(Cards);
         }
-        public static void Test(string[] testExpressions)
+        public static string[] TemplateToExpressions(string[] input)
         {
-
-
-            foreach (string testString in testExpressions)
+            Random rng =new Random();
+            string[] output = new string[input.Length];
+            for (int i = 0; i < input.Length; i++)
             {
-                Console.WriteLine(testString);
-                Expression e = StringToExpression(testString);
-                Console.WriteLine(e.Evaluate());
+                string str = input[i];
+                char[] Carray = str.ToCharArray();
+                for (int j = 0; j < str.Length; j++)
+                {
+                    char c = str[j];
+                    if (Char.IsLetterOrDigit(c))
+                    {
+                        Carray[j] = rng.Next(1, 14).ToString()[0];
+                    }
+                }
+                output[i] = new string(Carray);
             }
+            return output;
         }
+        public static string[] Test(string[] testExpressions)
+        {
+            string[] output = new string[testExpressions.Length];
+            for (int i = 0; i < testExpressions.Length; i++)
+            {
+                string testString = testExpressions[i];
+                Expression e = StringToExpression(testString);
+                output[i] = String.Format(testString+" = " + e.Evaluate());
+            }
+            return output;
+        }
+
     }
 }

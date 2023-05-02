@@ -47,7 +47,14 @@ namespace CMP1903M_Assessment_2
         public Card(float floatValue):this()
         { 
            FloatValue = floatValue;
-           Value = (int)floatValue;
+            try
+            {
+                Value = (int)floatValue;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Value = 13;
+            }
         }
         public Card(SuitEnum suit) :this()
         {

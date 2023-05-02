@@ -47,14 +47,14 @@ namespace CMP1903M_Assessment_2
             else
             {
                 //evaluate, store and return
-                Value = MathF.Round(Calculator.Calculate(this),2);
+                Value =Calculator.Calculate(this);
                 return Value;
             }
         }
         public bool CheckAnswer(float answer)
         {
             answer = MathF.Round(answer,2);
-            if (answer == Evaluate())
+            if (answer == MathF.Round(Evaluate()))
             {
                 return true;
             }
